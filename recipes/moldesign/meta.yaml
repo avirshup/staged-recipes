@@ -1,0 +1,73 @@
+{% set name = "moldesign" %}
+{% set version = "0.8.0rc4" %}
+{% set sha256 = "859908058876184615fb9c924c5083212f05bd36179927c5403bd21f99d4fc8f" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - biopython
+    - docker >=2.0
+    - future
+    - fortranformat
+    - funcsigs
+    - numpy >=1.12
+    - parmed >=2.7.3
+    - pint >=0.8.1
+    - pyccc >=0.7.13
+    - pyyaml
+    - requests
+    - scipy
+    - sortedcontainers
+
+test:
+    imports:
+        - moldesign
+        - moldesign._tests
+        - moldesign.compute
+        - moldesign.external
+        - moldesign.forcefields
+        - moldesign.geom
+        - moldesign.helpers
+        - moldesign.integrators
+        - moldesign.interfaces
+        - moldesign.min
+        - moldesign.models
+        - moldesign.molecules
+        - moldesign.orbitals
+        - moldesign.tools
+        - moldesign.units
+        - moldesign.utils
+        - moldesign.utils.docparsers
+        - moldesign.widgets
+
+
+about:
+    home: http://moldesign.bionano.autodesk.com
+    license: Apache-2.0
+    summary: 'Notebook-ready tools for chemical computation and visualization'
+    license_file: LICENSE
+    dev_url: https://github.com/autodesk/molecular-design-toolkit
+    doc_url: https://autodesk.github.io/molecular-design-toolkit/
+
+
+extra:
+  recipe-maintainers:
+    - avirshup
+
