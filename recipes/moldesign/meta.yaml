@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - biopython
-    - docker >=2.0
+    - docker-py >=2.0
     - future
     - fortranformat
     - funcsigs
