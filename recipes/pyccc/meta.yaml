@@ -1,0 +1,51 @@
+{% set name = "pyccc" %}
+{% set version = "0.7.13" %}
+{% set md5 = "4ab904c57098db8297e33e786bd33b7b" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: {{ md5 }}
+
+build:
+  noarch: python
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - chardet
+    - docker-py >2.0
+    - future
+    - requests
+    - tblib
+
+test:
+  # Some package might need a `test/commands` key to check CLI.
+  # List all the packages/modules that `run_test.py` imports.
+  imports:
+    - pyccc
+    - pyccc.files
+    - pyccc.engines
+
+about:
+  home: http://github.com/Autodesk/py-cloud-compute-cannon
+  license: Apache-2.9
+  license_family: MIT
+  summary: 'Batch-like job and file management through Docker and subprocesses'
+  description: |
+    Basic, lightweight framework for batch-like job and file management through Docker and
+    subprocesses.
+  dev_url: http://github.com/Autodesk/py-cloud-compute-cannon
+
+extra:
+  recipe-maintainers:
+    - avirshup
