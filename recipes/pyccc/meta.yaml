@@ -38,8 +38,7 @@ test:
 
 about:
   home: http://github.com/Autodesk/py-cloud-compute-cannon
-  license: Apache-2.9
-  license_family: MIT
+  license: Apache-2.0
   summary: 'Batch-like job and file management through Docker and subprocesses'
   description: |
     Basic, lightweight framework for batch-like job and file management through Docker and
