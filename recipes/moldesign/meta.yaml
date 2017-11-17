@@ -37,25 +37,27 @@ requirements:
     - sortedcontainers
 
 test:
+    requires:
+      - pytest
     imports:
-        - moldesign
-        - moldesign._tests
-        - moldesign.compute
-        - moldesign.external
-        - moldesign.forcefields
-        - moldesign.geom
-        - moldesign.helpers
-        - moldesign.integrators
-        - moldesign.interfaces
-        - moldesign.min
-        - moldesign.models
-        - moldesign.molecules
-        - moldesign.orbitals
-        - moldesign.tools
-        - moldesign.units
-        - moldesign.utils
-        - moldesign.utils.docparsers
-        - moldesign.widgets
+      - moldesign
+      - moldesign._tests
+      - moldesign.compute
+      - moldesign.external
+      - moldesign.forcefields
+      - moldesign.geom
+      - moldesign.helpers
+      - moldesign.integrators
+      - moldesign.interfaces
+      - moldesign.min
+      - moldesign.models
+      - moldesign.molecules
+      - moldesign.orbitals
+      - moldesign.tools
+      - moldesign.units
+      - moldesign.utils
+      - moldesign.utils.docparsers
+      - moldesign.widgets
 
 
 about:
